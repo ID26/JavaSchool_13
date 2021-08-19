@@ -1,28 +1,51 @@
 package ru.sberbank.denisov26.lesson_2.filetocollection;
 
 import java.io.*;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
-    private static File file = new File(
-            "src/main/resources/Пушкин.txt");
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line = null;
-            StringBuilder builder = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                builder.append(line).append(" ");
+        File file = new File("src/main/resources/Пушкин.txt");
+        FileContent content = new FileContent(file);
+
+        ConsoleHelper.printMessage(String.format(
+                "Количество различных слов в файле = %d\n\r",
+                new DifferentWorld(content.getAllLineAsString()).quantityDifferentWorld()));
+
+        ConsoleHelper.printMessage("Список различных слов файла, " +
+                "отсортированный по возрастанию их длины, потом по тексту: \n\r");
+        new DifferentWorld(content.getAllLineAsString())
+                .sortedSetByFirstLengthSecondText().forEach(s -> System.out.print(s + " "));
+
+        ConsoleHelper.printMessage("Список количесва присутствия каждого из слов, " +
+                "встречающихся в файле: \n\r");
+        new DifferentWorld(content.getAllLineAsString())
+                .quantitySameCase().forEach((s, v) -> System.out.println(s + " : " + v));
+
+        ConsoleHelper.printMessage("\n\rRevers line from file: ");
+        ConsoleHelper.printList(content.getReversLine());
+
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+            while (true) {
+                ConsoleHelper.printMessage("\n\rEnter string number: ");
+                try {
+                    String usersClick = bufferedReader.readLine();
+                    if ("exit".equalsIgnoreCase(usersClick)) {
+                        return; }
+                    int lineNumber = Integer.parseInt(usersClick);
+                    if (lineNumber >= content.getFileContentLines().size() + 1 || lineNumber <= 0) {
+                        ConsoleHelper.printMessage(String.format(
+                                "The do't contain requested line number, " +
+                                        "enter number from 1 to %d", content.getFileContentLines().size()));
+                        continue;
+                    } else {
+                        ConsoleHelper.printMessage(content.getLineByNumber(--lineNumber));
+                    }
+                } catch (NumberFormatException e) {
+                    ConsoleHelper.printMessage("Incorrect number");
+                }
             }
-            String[] result = builder.toString().replaceAll(
-                    "[^а-яА-Я ][^\\S\\r\\n]", "").trim().split(" ");
-//            Arrays.stream(result).forEach(System.out::println);
-            System.out.printf("Задание 1: Подсчитайте количество различных слов в файле. " +
-                    "Количество различных слов в файле = %d", new DifferentWorld(result).quantityDifferentWorld());
         } catch (IOException e) {
             e.printStackTrace();
         }
