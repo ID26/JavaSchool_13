@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 public class FileContent {
     private File file;
@@ -48,8 +49,19 @@ public class FileContent {
     }
 
     public List<String> getReversLine() {
-        List<String> reversLine = getFileContentLines();
-        Collections.reverse(reversLine);
+//        List<String> reversLine = getFileContentLines();
+//        Collections.reverse(reversLine);
+
+        // another
+        List<String> inputList = getFileContentLines();
+        ListIterator listIterator = inputList.listIterator(inputList.size());
+        List<String> reversLine = new ArrayList<>();
+
+        while(listIterator.hasPrevious()) {
+            reversLine.add((String) listIterator.previous());
+        }
+
+
         return reversLine;
     }
 }
