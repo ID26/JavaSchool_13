@@ -1,5 +1,6 @@
 package ru.sberbank.denisov26.lesson_3;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public interface CountMap<K> {
@@ -49,6 +50,12 @@ public interface CountMap<K> {
 
         System.out.println(count + " " + count1 + " " + count2);
 
+        Map<Integer, Integer> dest = new HashMap<>();
+        map.toMap(dest);
+
+        for (Integer integer : dest.keySet()) {
+            System.out.println(integer + " " + dest.get(integer));
+        }
 
 
     }

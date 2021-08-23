@@ -27,7 +27,7 @@ public class CountMapImpl<K> implements CountMap<K> {
         return map.get(k);
     }
 
-    //Удаляет элемент и контейнера и возвращает количество его добавлений(до удаления)
+    //Удаляет элемент из контейнера и возвращает количество его добавлений(до удаления)
     @Override
     public int remove(K k) {
         Integer count = null;
@@ -60,9 +60,18 @@ public class CountMapImpl<K> implements CountMap<K> {
                 map.put(key, 1);
             }
         }
-
-
     }
+
+//    @Override
+//    public void addAll(CountMap source) {
+//        for (Object key: source.toMap().keySet()) {
+//            Integer count;
+//            if((count = map.get(key)) == null) {
+//                count = 0;
+//            }
+//            map.put((K) key, source.getCount(key) + count);
+//        }
+//    }
 
     //Вернуть java.util.Map. ключ - добавленный элемент,
     // значение - количество его добавлений
@@ -74,6 +83,8 @@ public class CountMapImpl<K> implements CountMap<K> {
     //Тот же самый контракт как и toMap(), только всю информацию записать в destination
     @Override
     public void toMap(Map destination) {
-        destination = map;
+        for (K key: map.keySet()) {
+            destination.put(key, map.get(key));
+        }
     }
 }
