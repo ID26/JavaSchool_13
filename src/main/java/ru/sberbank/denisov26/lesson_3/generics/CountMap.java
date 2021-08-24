@@ -1,4 +1,4 @@
-package ru.sberbank.denisov26.lesson_3;
+package ru.sberbank.denisov26.lesson_3.generics;
 
 import java.util.HashMap;
 import java.util.Map;
