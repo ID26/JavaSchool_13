@@ -1,5 +1,7 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal;
 
+import ru.sberbank.denisov26.lesson_4.readcontent.terminal.exceptions.InterruptOperationException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,18 +10,17 @@ import java.util.ResourceBundle;
 public class ConsoleHelper {
     private static BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
 
-//    private static ResourceBundle res = ResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.common");
-    private static ResourceBundle res = null; // заглушка
+    private static ResourceBundle res = ResourceBundle.getBundle(/*CashMachine.class.getPackage().getName() + ".resources.*/"common");
 
     public static void writeMessage(String message) {
         System.out.println(message);
     }
 
-    public static String readString() /*throws InterruptOperationException*/ {
+    public static String readString() throws InterruptOperationException {
         try {
             String text = bis.readLine();
             if ("exit".equals(text.toLowerCase())) {
-//                throw new InterruptOperationException();
+                throw new InterruptOperationException();
             }
 
             return text;
@@ -29,7 +30,7 @@ public class ConsoleHelper {
         return null;
     }
 
-    public static String askCurrencyCode() /*throws InterruptOperationException*/ {
+    public static String askCurrencyCode() throws InterruptOperationException {
         while (true) {
             ConsoleHelper.writeMessage(res.getString("choose.currency.code"));
             String currencyCode = ConsoleHelper.readString();
@@ -41,7 +42,7 @@ public class ConsoleHelper {
         }
     }
 
-    public static String[] getValidTwoDigits(String currencyCode) /*throws InterruptOperationException*/ {
+    public static String[] getValidTwoDigits(String currencyCode) throws InterruptOperationException {
         while (true) {
             ConsoleHelper.writeMessage(String.format(res.getString("choose.denomination.and.count.format"), currencyCode));
             String line = ConsoleHelper.readString();
@@ -62,7 +63,7 @@ public class ConsoleHelper {
         }
     }
 
-    public static Operation askOperation() /*throws InterruptOperationException*/ {
+    public static Operation askOperation() throws InterruptOperationException {
         while (true) {
             ConsoleHelper.writeMessage(res.getString("choose.operation"));
             ConsoleHelper.writeMessage("\t 1 - " + res.getString("operation.INFO"));
@@ -82,4 +83,31 @@ public class ConsoleHelper {
         ConsoleHelper.writeMessage(res.getString("the.end"));
     }
 
+
+    public static String readPin() throws InterruptOperationException {
+        StringBuilder stringBuilder = new StringBuilder();
+        int charactersCounter = 0;
+
+        try {
+            while (charactersCounter < 4) {
+                String character = bis.readLine();
+
+                if ("exit".equals(character.toLowerCase())) {
+                    throw new InterruptOperationException();
+                }
+
+                if (character.matches("\\d")) {
+                    stringBuilder.append(character);
+                    charactersCounter++;
+                } else {
+                    writeMessage("Character isn't digit, enter next digit");
+                }
+            }
+
+            return stringBuilder.toString();
+        } catch (IOException ignored) {
+
+        }
+        return null;
+    }
 }
