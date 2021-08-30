@@ -1,8 +1,6 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal.command;
 
 
-
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CashMachine;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.ConsoleHelper;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulator;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulatorFactory;
@@ -12,7 +10,7 @@ import java.util.ResourceBundle;
 
 
 class DepositCommand implements Command {
-    private ResourceBundle res = ResourceBundle.getBundle(/*CashMachine.RESOURCE_PATH + */"deposit");
+    private ResourceBundle res = ResourceBundle.getBundle("deposit");
 
 
     @Override
@@ -25,6 +23,9 @@ class DepositCommand implements Command {
             String[] split = ConsoleHelper.getValidTwoDigits(currencyCode);
             try {
                 int denomination = Integer.parseInt(split[0]);
+                if (denomination % 100 != 0) {
+                    throw new NumberFormatException();
+                }
                 int count = Integer.parseInt(split[1]);
                 manipulator.addAmount(denomination, count);
                 ConsoleHelper.writeMessage(String.format(res.getString("success.format"), (denomination * count), currencyCode));

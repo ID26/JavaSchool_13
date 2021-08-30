@@ -52,12 +52,7 @@ public class CurrencyManipulator {
         Collections.sort(keys);
         Collections.reverse(keys);
 
-        TreeMap<Integer, Integer> resultMap = new TreeMap<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        });
+        TreeMap<Integer, Integer> resultMap = new TreeMap<>((o1, o2) -> o2.compareTo(o1));
 
         for (Integer denomination : keys) {
             final int key = denomination;

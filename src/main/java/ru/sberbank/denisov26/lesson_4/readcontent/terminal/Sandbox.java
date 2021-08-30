@@ -1,25 +1,34 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal;
 
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.exceptions.AccountIsLockedException;
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.exceptions.InterruptOperationException;
+import ru.sberbank.denisov26.lesson_4.readcontent.terminal.view.PasswordListener;
 
+import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-import java.io.*;
-import java.util.Calendar;
-import java.util.Date;
-
-public class TestAccountLockedException {
+public class Sandbox {
     private static final BufferedReader bis = new BufferedReader(new InputStreamReader(System.in));
     private static int countVerificationPin = 0;
 
     public static void main(String[] args) {
+        PasswordListener passwordListener = new PasswordListener();
+//        PasswordGUI passwordGUI = new PasswordGUI();
+//        passwordGUI.setVisible(true);
+//        EnterKeyListener keyListener = new EnterKeyListener();
 
-        Calendar calendar = Calendar.getInstance();
-        long start = calendar.getTimeInMillis();
-        System.out.println(start);
-        while ((start + 10000) > calendar.getTimeInMillis()) {
-//            bis.readLine()
-        }
+//        long timeToAccountBlocked = System.currentTimeMillis() + 10000;
+//        long sec;
+//        EnterKeyListener keyListener;
+//        while ((sec = (timeToAccountBlocked - System.currentTimeMillis()) / 1000) > 0) {
+//            keyListener = new EnterKeyListener(sec);
+//        }
+
+//        Calendar calendar = Calendar.getInstance();
+//        long start = calendar.getTimeInMillis();
+//        System.out.println(start);
+//        while ((start + 10000) > calendar.getTimeInMillis()) {
+////            bis.readLine()
+//        }
 
 //        File file = new File(CashMachine.class.getClass().getClassLoader()
 //                .getResource("verifiedCards.properties").getFile());

@@ -1,14 +1,13 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal.command;
 
 
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CashMachine;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.ConsoleHelper;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.exceptions.InterruptOperationException;
 
 import java.util.ResourceBundle;
 
 class ExitCommand implements Command {
-    private ResourceBundle res = ResourceBundle.getBundle(/*CashMachine.RESOURCE_PATH + */"exit");
+    private ResourceBundle res = ResourceBundle.getBundle("exit");
 
     @Override
     public void execute() throws InterruptOperationException {

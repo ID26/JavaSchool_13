@@ -1,7 +1,6 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal.command;
 
 
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CashMachine;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.ConsoleHelper;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulator;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulatorFactory;
@@ -10,7 +9,7 @@ import java.util.ResourceBundle;
 
 class InfoCommand implements Command {
 
-    private ResourceBundle res = ResourceBundle.getBundle(/*CashMachine.RESOURCE_PATH + */"info");
+    private ResourceBundle res = ResourceBundle.getBundle("info");
 
     @Override
     public void execute() {

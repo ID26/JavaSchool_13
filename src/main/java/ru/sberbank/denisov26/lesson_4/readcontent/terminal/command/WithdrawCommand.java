@@ -1,7 +1,6 @@
 package ru.sberbank.denisov26.lesson_4.readcontent.terminal.command;
 
 
-import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CashMachine;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.ConsoleHelper;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulator;
 import ru.sberbank.denisov26.lesson_4.readcontent.terminal.CurrencyManipulatorFactory;
@@ -13,7 +12,7 @@ import java.util.ResourceBundle;
 
 class WithdrawCommand implements Command {
 
-    private ResourceBundle res = ResourceBundle.getBundle(/*CashMachine.RESOURCE_PATH + */"withdraw");
+    private ResourceBundle res = ResourceBundle.getBundle("withdraw");
 
 
     @Override
@@ -32,6 +31,9 @@ class WithdrawCommand implements Command {
                 } else {
                     try {
                         int amount = Integer.parseInt(s);
+                        if (amount % 100 != 0) {
+                            throw new NumberFormatException();
+                        }
                         boolean isAmountAvailable = manipulator.isAmountAvailable(amount);
                         if (isAmountAvailable) {
                             Map<Integer, Integer> denominations = manipulator.withdrawAmount(amount);
