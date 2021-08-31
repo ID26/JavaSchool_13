@@ -2,6 +2,7 @@ package ru.sberbank.denisov26.lesson_5.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,12 +39,30 @@ public class GetAllMethodsClass {
 
     private static void checkAllStringConstantHaveMeanEqualsName(Class<?> clazz) {
         for (Field field : clazz.getDeclaredFields()) {
-            System.out.println(field + " " + field.getType() + " " + field.getModifiers());
-            if (field.getType() == String.class ) {
-               // System.out.println(field);
+            field.setAccessible(true);
+//            try {
+//                System.out.println(field.getName() + " " + field.get(String.class));
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+
+            if (field.getType() == String.class &&
+                    isModifierFinal(field.getModifiers(), Modifier.STATIC) &&
+                    isModifierFinal(field.getModifiers(), Modifier.FINAL)) {
+                try {
+                    boolean isEquals = field.getName().equalsIgnoreCase((String) field.get(String.class));
+                    System.out.println(field.getName() + " " + field.get(String.class) + " " + isEquals);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
             }
+            field.setAccessible(false);
         }
 
+    }
+
+    public static boolean isModifierFinal(int allModifiers, int mod) {
+        return (allModifiers & mod) > 0;
     }
 
     private static void printAllGetters(Class<?> clazz) {
