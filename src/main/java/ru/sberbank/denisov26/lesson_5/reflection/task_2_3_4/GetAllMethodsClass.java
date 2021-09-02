@@ -1,4 +1,4 @@
-package ru.sberbank.denisov26.lesson_5.reflection;
+package ru.sberbank.denisov26.lesson_5.reflection.task_2_3_4;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

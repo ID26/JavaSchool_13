@@ -1,4 +1,4 @@
-package ru.sberbank.denisov26.lesson_5.reflection;
+package ru.sberbank.denisov26.lesson_5.reflection.task_1;
 
 public interface Calculator {
     /**
