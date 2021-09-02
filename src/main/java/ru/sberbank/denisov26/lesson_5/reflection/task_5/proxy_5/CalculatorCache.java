@@ -12,7 +12,6 @@ public class CalculatorCache implements Calculator {
     }
 
     @Override
-    @Cache
     public int calc(int arg) {
         if (map.containsKey(arg)) {
             System.out.println("From cache: ");
