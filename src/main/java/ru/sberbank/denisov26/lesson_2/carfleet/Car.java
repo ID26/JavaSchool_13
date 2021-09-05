@@ -1,7 +1,5 @@
 package ru.sberbank.denisov26.lesson_2.carfleet;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

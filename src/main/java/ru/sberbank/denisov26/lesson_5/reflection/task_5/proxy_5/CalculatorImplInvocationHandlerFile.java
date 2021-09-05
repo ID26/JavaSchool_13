@@ -58,7 +58,7 @@ public class CalculatorImplInvocationHandlerFile implements InvocationHandler {
 
 
 //            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//            String json = GSON.toJson(element);
+            String json = GSON.toJson(element, Element.class);
 //            writer.write(json);
         }
         return value;

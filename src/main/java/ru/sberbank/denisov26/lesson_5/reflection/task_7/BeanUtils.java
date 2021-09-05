@@ -33,6 +33,7 @@ public class BeanUtils {
       //                  System.out.println(setter.getName().substring(3));
                         if (getter.getName().substring(3).equalsIgnoreCase(setter.getName().substring(3))) {
 //                            System.out.println(getter.getName().substring(3).equalsIgnoreCase(setter.getName().substring(3)));
+                            System.out.println(getter.getName().substring(3));
                             try {
                                 setter.invoke(to, getter.invoke(from));
 //                                throw new IllegalAccessException();
