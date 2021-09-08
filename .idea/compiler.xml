@@ -6,8 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JavaSchool_13" />
+        <module name="viewingprofiles" />
+        <module name="loadphoto" />
+        <module name="wall" />
+        <module name="chat" />
+        <module name="findaddfriends" />
+        <module name="ProfileDataBase" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="findandaddfriends" target="8" />
+      <module name="Lesson_6.socialnetwork" target="8" />
+      <module name="loadviewingPhoto" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

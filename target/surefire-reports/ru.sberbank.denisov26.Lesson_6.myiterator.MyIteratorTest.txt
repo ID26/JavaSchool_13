@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ru.sberbank.denisov26.Lesson_6.myiterator.MyIteratorTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
