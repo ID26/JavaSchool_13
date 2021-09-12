@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="viewingprofiles" />
-        <module name="loadphoto" />
-        <module name="wall" />
         <module name="chat" />
-        <module name="findaddfriends" />
-        <module name="ProfileDataBase" />
+        <module name="wall" />
+        <module name="lesson_8.cashingproxy" />
+        <module name="loadphoto" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="findaddfriends" target="8" />
       <module name="findandaddfriends" target="8" />
       <module name="Lesson_6.socialnetwork" target="8" />
       <module name="loadviewingPhoto" target="8" />
+      <module name="ProfileDataBase" target="8" />
+      <module name="viewingprofiles" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
