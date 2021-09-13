@@ -7,12 +7,16 @@ public class RunMain {
         Service service = new ServiceImpl();
         ClassLoader classLoader = service.getClass().getClassLoader();
         Class[] interfaces = service.getClass().getInterfaces();
-        Service proxyService = (Service) Proxy.newProxyInstance(classLoader, interfaces,
-                new ServiceRamCacheInvocationHandler(new ServiceImpl()));
+        ServiceCacheInvocationHandler invocationHandler = new ServiceCacheInvocationHandler(new ServiceImpl(),
+                "C:\\Users\\Иван\\YandexDisk\\JavaSchool_13\\lesson_8.cashingproxy\\src\\main\\resources");
+        Service proxyService = (Service) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
         System.out.println(proxyService.doHardWork("mama washing window",3));
         System.out.println(proxyService.doHardWork("Peter and Wolf",4));
         System.out.println(proxyService.doHardWork("Timur and his team",10));
         System.out.println(proxyService.doHardWork("Heat stone",3));
-        System.out.println(proxyService.doHardWork("Timur and his team",10));
+        System.out.println(proxyService.doHardWork("timur and his team",10));
+        System.out.println(proxyService.doHardWork("peter and Wolf",4));
+        System.out.println(proxyService.doHardWork("mama washing window",3));
+
     }
 }
