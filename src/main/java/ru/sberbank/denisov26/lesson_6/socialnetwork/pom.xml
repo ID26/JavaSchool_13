@@ -13,12 +13,11 @@
     <artifactId>socialnetwork</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>findaddfriends</module>
-        <module>viewingprofiles</module>
+
         <module>chat</module>
         <module>wall</module>
         <module>loadphoto</module>
-        <module>ProfileDataBase</module>
+
     </modules>
 
 

@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="chat" />
         <module name="wall" />
-        <module name="lesson_8.cashingproxy" />
+        <module name="lesson_9.stream" />
         <module name="loadphoto" />
       </profile>
     </annotationProcessing>
@@ -16,6 +16,7 @@
       <module name="findaddfriends" target="8" />
       <module name="findandaddfriends" target="8" />
       <module name="Lesson_6.socialnetwork" target="8" />
+      <module name="lesson_9.stream" target="8" />
       <module name="loadviewingPhoto" target="8" />
       <module name="ProfileDataBase" target="8" />
       <module name="viewingprofiles" target="8" />

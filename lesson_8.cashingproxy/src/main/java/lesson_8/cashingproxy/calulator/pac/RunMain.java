@@ -2,6 +2,7 @@ package lesson_8.cashingproxy.calulator.pac;
 
 import java.lang.reflect.Proxy;
 
+
 public class RunMain {
     public static void main(String[] args) {
         Service service = new ServiceImpl();
@@ -17,6 +18,7 @@ public class RunMain {
         System.out.println(proxyService.doHardWork("timur and his team",10));
         System.out.println(proxyService.doHardWork("peter and Wolf",4));
         System.out.println(proxyService.doHardWork("mama washing window",3));
+
 
     }
 }

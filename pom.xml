@@ -23,6 +23,7 @@
     <modules>
         <module>src/main/java/ru/sberbank/denisov26/lesson_6/socialnetwork</module>
         <module>lesson_8.cashingproxy</module>
+        <module>lesson_9.stream</module>
     </modules>
     <dependencies>
 <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api &ndash;&gt;-->
