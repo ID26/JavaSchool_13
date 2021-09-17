@@ -6,20 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="chat" />
-        <module name="wall" />
         <module name="lesson_9.stream" />
-        <module name="loadphoto" />
+        <module name="lesson_10.multithreding_1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="chat" target="8" />
       <module name="findaddfriends" target="8" />
       <module name="findandaddfriends" target="8" />
       <module name="Lesson_6.socialnetwork" target="8" />
       <module name="lesson_9.stream" target="8" />
+      <module name="loadphoto" target="8" />
       <module name="loadviewingPhoto" target="8" />
       <module name="ProfileDataBase" target="8" />
+      <module name="socialnetwork" target="8" />
       <module name="viewingprofiles" target="8" />
+      <module name="wall" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

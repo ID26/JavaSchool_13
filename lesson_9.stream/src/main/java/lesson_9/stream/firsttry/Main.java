@@ -1,6 +1,9 @@
 package lesson_9.stream.firsttry;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -8,6 +11,12 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
+//        List<Integer> list = Arrays.asList(1, 2, 3, 4, 6, 9, 15, 11, 4, 7, 8, 0, 32);
+//
+//        Map<Integer, Integer> map = Streams.of(list).toMap(x -> x, x -> +1);
+//        map.keySet().forEach();
+
+
 //        Stream.of(2, 3, 0, 1, 3)
 //                .flatMapToInt(x -> IntStream.range(0, x))
 //                .forEach(System.out::print);// 010120012
@@ -36,3 +45,4 @@ public class Main {
 
     }
 }
+
